@@ -40,6 +40,6 @@ bash NewWPSite.sh $uservar
 ;;
 4)
 read -p 'Domain (i.e. blog.chasehall.net): ' uservar
-bash 4.sh $uservar
+bash NewSimpleHTML.sh $uservar
 ;;
 esac
