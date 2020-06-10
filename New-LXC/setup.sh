@@ -8,7 +8,7 @@ read -p "New SSH Port: " portvar
 sed -i 's/#Port 22/Port %portvar%/g' /etc/ssh/sshd_config
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
-sed -i 's/#PermitRootLogin yes/PermitRootLogin prohibit-paassword/g' /etc/ssh/sshd_config
+sed -i 's/#PermitRootLogin yes/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-paassword/g' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 sudo apt update && sudo apt install unattended-upgrades -y
@@ -18,7 +18,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades
 clear
 echo Modify the following file to uncomment this line.
 echo "//      \"\${distro_id}:\${distro_codename}-updates\";"
-read -n 1 -s -r -p "OK?"
+read -n 1 -s -r -p "OK? "
 sudo vim /etc/apt/apt.conf.d/50unattended-upgrades
 clear
 sed -i 's/\/\/Unattended-Upgrade::Remove-Unused-Kernel-Packages \"false\";/Unattended-Upgrade::Remove-Unused-Kernel-Packages \"true\";/g' /etc/apt/apt.conf.d/50unattended-upgrades
