@@ -1,5 +1,5 @@
 # Proxmox default LXC's don't contain stuff to run this simple script, therefor, before running this script, run this.
-# $ sudo apt update && sudo apt install wget
+# $ sudo apt update && sudo apt install wget -y
 # $ sudo wget https://git.chasehall.net/Chase/Scripts/raw/branch/master/New-LXC/setup.sh && sudo chmod +x setup.sh && bash setup.sh
 
 sudo apt update && sudo apt install vim wget curl apt-transport-https -y
