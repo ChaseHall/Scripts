@@ -1,5 +1,7 @@
 # All these links are dead, whoops.
 
+[I was lazy writing this document so the nexted a/b/c doesn't work in markdown view, so click view raw to see the nested abc right. (I'll fix it eventually...)](https://git.chasehall.net/Chase/Scripts/raw/branch/master/NewWPDomain.md)
+
 Sticky Footer:
 1. Install "Insert Headers and Footers"
 2. Go to Insert Headers and Footers - /wp-admin/options-general.php?page=insert-headers-and-footers
