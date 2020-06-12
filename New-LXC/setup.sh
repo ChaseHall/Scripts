@@ -5,7 +5,7 @@
 sudo apt update && sudo apt install vim wget curl apt-transport-https -y
 echo "alias update=\"sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo snap refresh\"" >> ~/.bashrc
 read -p "New SSH Port: " portvar
-sed -i 's/#Port 22/Port $portvar/g' /etc/ssh/sshd_config
+sed -i "s/#Port 22/Port $portvar/g" /etc/ssh/sshd_config
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin yes/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
