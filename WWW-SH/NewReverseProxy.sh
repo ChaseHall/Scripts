@@ -5,7 +5,6 @@ miabp1="curl -X PUT --user"
 miabemail=""
 miabpw=""
 miabp2="https://mail.nebulahost.us/admin/dns/custom"
-dbpw=""
 # Args (Not user gen'd)
 servn=$1
 
