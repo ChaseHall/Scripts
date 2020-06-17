@@ -12,9 +12,9 @@ TITLE="Menu"
 MENU="Choose one of the following options:"
 
 OPTIONS=(
-1 "New Reverse Proxy (Do 1 first)"
-2 "New WP Site (Do 1 first)"
-3 "New HTTP Site (Do 1 first)")
+1 "New Reverse Proxy"
+2 "New WP Site"
+3 "New HTTP Site")
 
 CHOICE=$(dialog --clear \
 --title "$TITLE" \
