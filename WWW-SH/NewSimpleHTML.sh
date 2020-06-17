@@ -1,34 +1,32 @@
 #!/bin/bash
 
-# Define stuff so I can change MIAB info easier.
-# Change ddns, 2, 3, 4 aswell.
-argxd=""
+# Args
+miabp1="curl -X PUT --user"
 miabemail=""
-miabpass=""
-link=""
+miabpw=""
+miabp2="https://mail.nebulahost.us/admin/dns/custom"
+# Args (Not user gen'd)
+servn=$1
 
 
-# Check root
+# Checking things...
 if [ "$(whoami)" != 'root' ]; then
 echo "You have to execute this script as root user"
 exit 1;
 fi
-# Take variable from menu.sh and use it.
-servn=$1
-# Check if already exists
 if ! mkdir -p /var/www/$servn; then
 echo "Already Exists."
 exit 1;
 else
-# Start the work...
+  # Begin installing...
   echo "<p>$servn</p>">> /var/www/$servn/index.html
 
   chown -R www-data:www-data /var/www/$servn/
 
-  echo "$argxd $miabemail:$miabpass $link/$servn" >> /root/ddns.sh
+  echo "$miabp1 $miabemail:$miabpw $miabp2/$servn" >> /root/ddns.sh
   echo "sleep 1" >> /root/ddns.sh
-  $argxd $miabemail:$miabpass $link/$servn
-  $argxd $miabemail:$miabpass $link/$servn
+  $miabp1 $miabemail:$miabpw $miabp2/$servn
+  $miabp1 $miabemail:$miabpw $miabp2/$servn
   
 echo "
 # BEGIN $servn
@@ -60,13 +58,9 @@ sed -i '/#Include \/etc\/letsencrypt\/options-ssl-apache.conf/s/^# *//' /etc/apa
 sed -i '/#SSLCertificateFile \/etc\/letsencrypt\/live\/'$servn'\/fullchain.pem/s/^# *//' /etc/apache2/sites-available/www.conf
 sed -i '/#SSLCertificateKeyFile \/etc\/letsencrypt\/live\/'$servn'\/privkey.pem/s/^# *//' /etc/apache2/sites-available/www.conf
 sudo systemctl restart apache2
-
-
 sudo chown -R www-data:www-data /var/www/$servn
 clear
 echo =======================================================================
-echo Setup Done.
-echo
-echo Add $servn to: https://cmh.pw/dnsm
+echo Add $servn to DNS Host Mapping on modem.
 echo Add content to: /var/www/$servn
 fi
