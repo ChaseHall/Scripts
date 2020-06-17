@@ -42,11 +42,6 @@ Redirect permanent / https://$servn/
     ServerAdmin ch@chasehall.net
     ServerName $servn
     DocumentRoot /var/www/$servn
-<Directory /var/www/$servn>
-Order Deny,Allow #$servn
-Deny from all #$servn
-Allow from 127.0.0.1 #$servn
-</Directory>
 #Include /etc/letsencrypt/options-ssl-apache.conf
 #SSLCertificateFile /etc/letsencrypt/live/$servn/fullchain.pem
 #SSLCertificateKeyFile /etc/letsencrypt/live/$servn/privkey.pem
@@ -97,9 +92,6 @@ wp plugin install wordpress-seo --activate --allow-root
 wp plugin install adminimize --activate --allow-root
 wp plugin install capability-manager-enhanced --activate --allow-root
 chown -R www-data:www-data /var/www/$servn/
-sed -i "s/Order Deny,Allow #$servn/#Order Deny,Allow #$servn/g" /etc/apache2/sites-available/www.conf
-sed -i "s/Deny from all #$servn/#Deny from all #$servn/g" /etc/apache2/sites-available/www.conf
-sed -i "s/Allow from 127.0.0.1 #$servn/#Allow from 127.0.0.1 #$servn/g" /etc/apache2/sites-available/www.conf
 sudo systemctl restart apache2
 clear
 echo =======================================================================
