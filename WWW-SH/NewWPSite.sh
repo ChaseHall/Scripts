@@ -94,9 +94,6 @@ wp plugin install capability-manager-enhanced --activate --allow-root
 chown -R www-data:www-data /var/www/$servn/
 sudo systemctl restart apache2
 clear
-echo =======================================================================
-echo Setup Done.
-echo
 echo Add $servn to DNS Host Mapping on modem.
 echo
 echo
