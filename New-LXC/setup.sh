@@ -8,7 +8,7 @@ sed -i "s/#Port 22/Port $portvar/g" /etc/ssh/sshd_config
 sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin yes/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
-sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-paassword/g' /etc/ssh/sshd_config
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 sudo apt update && sudo apt install unattended-upgrades -y
 sudo dpkg-reconfigure -plow unattended-upgrades
