@@ -1,7 +1,9 @@
+#!/bin/bash
+
 # Run this after SSH'ing.
 #     sudo apt update && sudo apt install wget -y && sudo wget https://git.chasehall.net/Chase/Scripts/raw/branch/master/New-LXC/setup.sh && sudo chmod +x setup.sh && bash setup.sh
 
-sudo apt update && sudo apt install vim wget curl apt-transport-https -y
+sudo apt install vim curl apt-transport-https -y
 echo "alias update=\"sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo snap refresh\"" >> ~/.bashrc
 read -p "New SSH Port: " portvar
 sed -i "s/#Port 22/Port $portvar/g" /etc/ssh/sshd_config
@@ -10,7 +12,7 @@ sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin yes/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
 sudo systemctl restart sshd
-sudo apt update && sudo apt install unattended-upgrades -y
+sudo apt install unattended-upgrades -y
 sudo dpkg-reconfigure -plow unattended-upgrades
 # Struggling to replace this one with sed, maybe due to tabs?
 # //      "${distro_id}:${distro_codename}-updates";
@@ -38,3 +40,4 @@ sed -i 's/#net.ipv4.conf.all.log_martians = 1/net.ipv4.conf.all.log_martians = 1
 sudo sysctl -p > /dev/null 2>&1
 sudo apt update && sudo apt install fail2ban -y && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
 clear
+echo Done.
