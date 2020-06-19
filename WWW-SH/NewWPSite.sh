@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # Args
-miabp1="curl -X PUT --user"
-miabemail=""
-miabpw=""
-miabp2="https://mail.nebulahost.us/admin/dns/custom"
-dbpw=""
-wpuser="Chase"
+MIAB_curl="curl -X PUT --user"
+MIAB_Email=""
+MIAB_Password=""
+MIAB_Link="https://mail.nebulahost.us/admin/dns/custom"
+DB_PW=""
+WP_Username="Chase"
 # Args (Not user gen'd)
-servn=$1
-dbname=$(echo "${servn//.}")
-rndpw=$(bash /root/pwgen.sh)
-rndpw2=$(bash /root/pwgen.sh)
+ServerName-URL=$1
+DB_Name=$(echo "${ServerName-URL//.}")
+Random_PW1=$(bash /root/pwgen.sh)
+Random_PW2=$(bash /root/pwgen.sh)
 
 
 # Checking things...
@@ -23,57 +23,57 @@ fi
 if [ ! -e "/usr/local/bin/wp" ]; then
        curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp
 # Check if dir exists
-if ! mkdir -p /var/www/$servn; then
+if ! mkdir -p /var/www/$ServerName-URL; then
 echo "Already Exists."
 exit 1;
 else
   # Begin installing...
-  chown -R www-data:www-data /var/www/$servn/
-  echo "$miabp1 $miabemail:$miabpw $miabp2/$servn" >> /root/ddns.sh
+  chown -R www-data:www-data /var/www/$ServerName-URL/
+  echo "$MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName-URL" >> /root/ddns.sh
   echo "sleep 1" >> /root/ddns.sh
-  $miabp1 $miabemail:$miabpw $miabp2/$servn
-  $miabp1 $miabemail:$miabpw $miabp2/$servn
+  $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName-URL
+  $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName-URL
 echo "
-# BEGIN $servn
+# BEGIN $ServerName-URL
 
 # HTTP
 <VirtualHost *:80>
-ServerName $servn
-Redirect permanent / https://$servn/
+ServerName $ServerName-URL
+Redirect permanent / https://$ServerName-URL/
 </VirtualHost>
 # HTTP
 
 # HTTPS
 <VirtualHost *:443>
     ServerAdmin ch@chasehall.net
-    ServerName $servn
-    DocumentRoot /var/www/$servn
+    ServerName $ServerName-URL
+    DocumentRoot /var/www/$ServerName-URL
 #Include /etc/letsencrypt/options-ssl-apache.conf
-#SSLCertificateFile /etc/letsencrypt/live/$servn/fullchain.pem
-#SSLCertificateKeyFile /etc/letsencrypt/live/$servn/privkey.pem
+#SSLCertificateFile /etc/letsencrypt/live/$ServerName-URL/fullchain.pem
+#SSLCertificateKeyFile /etc/letsencrypt/live/$ServerName-URL/privkey.pem
 </VirtualHost>
 # HTTPS
 
-# END $servn
+# END $ServerName-URL
 ">> /etc/apache2/sites-available/www.conf
 sudo systemctl restart apache2
-sudo certbot certonly --apache -d $servn
+sudo certbot certonly --apache -d $ServerName-URL
 sed -i '/#Include \/etc\/letsencrypt\/options-ssl-apache.conf/s/^# *//' /etc/apache2/sites-available/www.conf
-sed -i '/#SSLCertificateFile \/etc\/letsencrypt\/live\/'$servn'\/fullchain.pem/s/^# *//' /etc/apache2/sites-available/www.conf
-sed -i '/#SSLCertificateKeyFile \/etc\/letsencrypt\/live\/'$servn'\/privkey.pem/s/^# *//' /etc/apache2/sites-available/www.conf
+sed -i '/#SSLCertificateFile \/etc\/letsencrypt\/live\/'$ServerName-URL'\/fullchain.pem/s/^# *//' /etc/apache2/sites-available/www.conf
+sed -i '/#SSLCertificateKeyFile \/etc\/letsencrypt\/live\/'$ServerName-URL'\/privkey.pem/s/^# *//' /etc/apache2/sites-available/www.conf
 sudo systemctl restart apache2
-cd /var/www/$servn/
+cd /var/www/$ServerName-URL/
 wget http://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 mv wordpress/* .
 rm -r wordpress/
 rm latest.tar.gz
-mysql -uroot -p$dbpw -e "CREATE DATABASE $dbname;"
-mysql -uroot -p$dbpw -e "CREATE USER $dbname@localhost IDENTIFIED BY '$rndpw';"
-mysql -uroot -p$dbpw -e "GRANT ALL PRIVILEGES ON $dbname.* TO '$dbname'@'localhost';"
-mysql -uroot -p$dbpw -e "FLUSH PRIVILEGES;"
-wp config create --dbname=$dbname --dbuser=$dbname --dbpass=$rndpw --allow-root
-wp core install --url=https://$servn --title=$servn --admin_user=$wpuser --admin_password=$rndpw2 --admin_email=$miabemail --allow-root
+mysql -uroot -p$DB_PW -e "CREATE DATABASE $DB_Name;"
+mysql -uroot -p$DB_PW -e "CREATE USER $DB_Name@localhost IDENTIFIED BY '$Random_PW1';"
+mysql -uroot -p$DB_PW -e "GRANT ALL PRIVILEGES ON $DB_Name.* TO '$DB_Name'@'localhost';"
+mysql -uroot -p$DB_PW -e "FLUSH PRIVILEGES;"
+wp config create --DB_Name=$DB_Name --dbuser=$DB_Name --dbpass=$Random_PW1 --allow-root
+wp core install --url=https://$ServerName-URL --title=$ServerName-URL --admin_user=$WP_Username --admin_password=$Random_PW2 --admin_email=$MIAB_Email --allow-root
 wp plugin install maintenance --activate --allow-root
 wp plugin install daggerhart-openid-connect-generic --allow-root
 rm -rf /wp-content/themes/twentyfourteen
@@ -97,16 +97,16 @@ wp plugin install wp-super-cache --activate --allow-root
 wp plugin install wordpress-seo --activate --allow-root
 wp plugin install adminimize --activate --allow-root
 wp plugin install capability-manager-enhanced --activate --allow-root
-chown -R www-data:www-data /var/www/$servn/
+chown -R www-data:www-data /var/www/$ServerName-URL/
 sudo systemctl restart apache2
 clear
-echo Add $servn to DNS Host Mapping on modem.
+echo Add $ServerName-URL to DNS Host Mapping on modem.
 echo
 echo
 echo Your WP Login:
-echo https://$servn/wp-admin
+echo https://$ServerName-URL/wp-admin
 echo Chase
-echo $rndpw2
+echo $Random_PW2
 echo
 echo
 echo Go configure all the plugins now.
