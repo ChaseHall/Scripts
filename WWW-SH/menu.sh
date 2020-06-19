@@ -12,8 +12,8 @@ TITLE="Menu"
 MENU="Choose one of the following options:"
 
 OPTIONS=(
-1 "New Reverse Proxy"
-2 "New WP Site"
+1 "New WP Site"
+2 "New Reverse Proxy"
 3 "New HTTP Site")
 
 CHOICE=$(dialog --clear \
@@ -26,15 +26,15 @@ $HEIGHT $WIDTH $CHOICE_HEIGHT \
 clear
 case $CHOICE in
 1)
-read -p 'New Reverse Proxy Domain (i.e. blog.chasehall.net): ' uservar
-bash NewReverseProxy.sh $uservar
-;;
-3)
-read -p 'New WP Site Domain (i.e. blog.chasehall.net): ' uservar
+read -p 'New WP Site Domain (i.e. c1000.nebulahost.us): ' uservar
 bash NewWPSite.sh $uservar
 ;;
+3)
+read -p 'New Reverse Proxy Domain (i.e. service.chasehall.net): ' uservar
+bash NewReverseProxy.sh $uservar
+;;
 4)
-read -p 'New HTTP Site Domain (i.e. blog.chasehall.net): ' uservar
+read -p 'New HTTP Site Domain (i.e. simple.cmh.pw): ' uservar
 bash NewSimpleHTML.sh $uservar
 ;;
 esac
