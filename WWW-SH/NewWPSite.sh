@@ -6,10 +6,12 @@ miabemail=""
 miabpw=""
 miabp2="https://mail.nebulahost.us/admin/dns/custom"
 dbpw=""
+wpuser="Chase"
 # Args (Not user gen'd)
 servn=$1
 dbname=$(echo "${servn//.}")
 rndpw=$(bash /root/pwgen.sh)
+rndpw2=$(bash /root/pwgen.sh)
 
 
 # Checking things...
@@ -71,7 +73,7 @@ mysql -uroot -p$dbpw -e "CREATE USER $dbname@localhost IDENTIFIED BY '$rndpw';"
 mysql -uroot -p$dbpw -e "GRANT ALL PRIVILEGES ON $dbname.* TO '$dbname'@'localhost';"
 mysql -uroot -p$dbpw -e "FLUSH PRIVILEGES;"
 wp config create --dbname=$dbname --dbuser=$dbname --dbpass=$rndpw --allow-root
-wp core install --url=https://$servn --title=$servn --admin_user=Chase --admin_password=$rndpw --admin_email=ch@chasehall.net --allow-root
+wp core install --url=https://$servn --title=$servn --admin_user=$wpuser --admin_password=$rndpw2 --admin_email=$miabemail --allow-root
 wp plugin install maintenance --activate --allow-root
 wp plugin install daggerhart-openid-connect-generic --allow-root
 rm -rf /wp-content/themes/twentyfourteen
@@ -104,7 +106,7 @@ echo
 echo Your WP Login:
 echo https://$servn/wp-admin
 echo Chase
-echo $rndpw
+echo $rndpw2
 echo
 echo
 echo Go configure all the plugins now.
