@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Make sure WP-CLI is installed first.
-#    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp
-
 # Args
 miabp1="curl -X PUT --user"
 miabemail=""
@@ -20,6 +17,10 @@ if [ "$(whoami)" != 'root' ]; then
 echo "You have to execute this script as root user"
 exit 1;
 fi
+# Check for WP-CLI
+if [ ! -e "/usr/local/bin/wp" ]; then
+       curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp
+# Check if dir exists
 if ! mkdir -p /var/www/$servn; then
 echo "Already Exists."
 exit 1;
