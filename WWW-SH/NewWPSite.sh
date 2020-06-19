@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # Make sure WP-CLI is installed first.
-#    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-#    chmod +x wp-cli.phar
-#    sudo mv wp-cli.phar /usr/local/bin/wp
+#    curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp
 
 # Args
 miabp1="curl -X PUT --user"
