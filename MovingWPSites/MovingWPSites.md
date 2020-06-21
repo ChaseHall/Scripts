@@ -1,10 +1,11 @@
 # Moving WP Domains
 
-1. Rename the folder inside /var/www/
-2. Rename the VirtualHost inside cfg
-3. Remove the DDNS line from ddns.sh
-4. Remove DNS from MIAB
-5. Add new DNS to MIAB
+1. Delete old HTTPS cert 
+    `sudo certbot delete`
+2. Rename the folder inside /var/www/
+3. Rename the VirtualHost inside cfg (along with cert)
+4. Remove the DDNS line from ddns.sh
+5. Remove DNS from MIAB
 6. Add new DNS to ddns.sh
 7. Use the WP Plugin: [Better Search Replace](https://wordpress.org/plugins/better-search-replace) and replace all instances of the old url to the new one.
 8. Also replace any emails that need replacing.
