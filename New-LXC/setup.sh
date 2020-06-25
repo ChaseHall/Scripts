@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Run this after SSH'ing.
-#     sudo apt update && sudo apt install wget -y && sudo wget https://git.chasehall.net/Chase/Scripts/raw/branch/master/New-LXC/setup.sh && sudo chmod +x setup.sh && bash setup.sh
-
 sudo apt install vim curl apt-transport-https -y
 echo "alias update=\"sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo snap refresh\"" >> ~/.bashrc
 read -p "New SSH Port: " portvar
