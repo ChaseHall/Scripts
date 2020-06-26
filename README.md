@@ -2,7 +2,7 @@
 
 Collection of scripts I use on a daily basis.
 
-[More scripts found here](https://git.chasehall.net/NebulaHost/Scripts)
+[More scripts found here](https://git.chasehall.net/NebulaHost/Scripts).
 
 ## Licensing
 
