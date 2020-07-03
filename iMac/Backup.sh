@@ -8,6 +8,7 @@ $RsyncPart/Documents/* $Location/Documents/
 $RsyncPart/Pictures/* $Location/Pictures/
 $RsyncPart/Music/* $Location/Music/
 $RsyncPart/Movies/* $Location/Movies/
-pmset sleepnow
+
+pmset sleepnow # Put Mac back to sleep. (System Prefs wakes it a minute before script fires from cronjob.)
 
 exit
