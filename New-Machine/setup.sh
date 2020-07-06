@@ -9,7 +9,9 @@
 # Plex (AppImage)
 
 sudo apt install vim curl apt-transport-https -y
-sudo apt update && sudo apt install fail2ban -y && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
+sudo apt install fail2ban -y
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
 echo "set mouse-=a" >> ~/.vimrc
 echo "
 # Chase Aliases
@@ -45,3 +47,4 @@ sudo apt update
 sudo snap install spotify
 sudo snap install discord
 sudo apt install -y vscodium tor filezilla hexchat calibre brave-browser gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
+sudo reboot now
