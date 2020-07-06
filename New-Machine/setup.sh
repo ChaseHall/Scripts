@@ -46,5 +46,5 @@ deb https://deb.parrot.sh/parrot rolling-security main contrib non-free
 sudo apt update
 sudo snap install spotify
 sudo snap install discord
-sudo apt install -y vscodium tor filezilla hexchat calibre brave-browser gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
+sudo apt install -y vscodium tor filezilla hexchat calibre brave-browser neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
 sudo reboot now
