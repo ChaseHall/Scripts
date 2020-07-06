@@ -35,7 +35,6 @@ deb https://assets.checkra.in/debian /
 deb http://ppa.launchpad.net/yubico/stable/ubuntu cosmic main 
 deb-src http://ppa.launchpad.net/yubico/stable/ubuntu cosmic main
 deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ bionic main
-deb http://download.opensuse.org/repositories/home:/ivaradi/Debian_10/ /
 " >> /etc/apt/sources.list
 echo "
 deb https://mirrors.ocf.berkeley.edu/parrot/ rolling main contrib non-free
@@ -43,8 +42,11 @@ deb https://mirrors.ocf.berkeley.edu/parrot/ rolling main contrib non-free
 deb https://deb.parrot.sh/parrot rolling main contrib non-free
 deb https://deb.parrot.sh/parrot rolling-security main contrib non-free
 " >> /etc/apt/sources.list.d/parrot.list
+sudo apt-key adv --fetch-keys https://assets.checkra.in/debian/archive.key # CheckRa1n
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 32CBA1A9 # Yubico
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - # Brave Browser
 sudo apt update
 sudo snap install spotify
 sudo snap install discord
-sudo apt install -y vscodium tor filezilla hexchat calibre brave-browser neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
+sudo apt install -y vscodium tor filezilla hexchat calibre brave-browser nextcloud-desktop checkra1n neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
 sudo reboot now
