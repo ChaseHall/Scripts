@@ -45,8 +45,10 @@ deb https://deb.parrot.sh/parrot rolling-security main contrib non-free
 sudo apt-key adv --fetch-keys https://assets.checkra.in/debian/archive.key # CheckRa1n
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 32CBA1A9 # Yubico
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - # Brave Browser
+sudo wget -O /usr/share/keyrings/riot-im-archive-keyring.gpg https://packages.riot.im/debian/riot-im-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/riot-im-archive-keyring.gpg] https://packages.riot.im/debian/ default main" | sudo tee /etc/apt/sources.list.d/riot-im.list # Riot.im
 sudo apt update
 sudo snap install spotify
 sudo snap install discord
-sudo apt install -y vscodium tor filezilla hexchat calibre brave-browser nextcloud-desktop checkra1n neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
+sudo apt install -y vscodium tor filezilla hexchat calibre brave-browser riot-desktop nextcloud-desktop checkra1n neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
 sudo reboot now
