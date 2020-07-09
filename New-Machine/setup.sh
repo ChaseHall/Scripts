@@ -7,6 +7,7 @@
 # General customization
 # Any form of settings (power/display)
 # Plex (AppImage)
+# Yubico PAM Auth - https://developers.yubico.com/yubico-pam/Authentication_Using_Challenge-Response.html
 
 sudo apt install vim curl apt-transport-https -y
 sudo apt install fail2ban -y
