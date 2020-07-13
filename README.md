@@ -1,8 +1,8 @@
 # Scripts
 
-Collection of scripts I use on a daily basis.
+Scripts I use on a daily basis.
 
-[More scripts found here](https://git.chasehall.net/NebulaHost/Scripts).
+[More scripts can be found here](https://git.chasehall.net/NebulaHost/Scripts).
 
 ## Licensing
 
