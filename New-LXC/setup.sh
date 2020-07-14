@@ -37,4 +37,8 @@ sed -i 's/#net.ipv4.conf.all.log_martians = 1/net.ipv4.conf.all.log_martians = 1
 sudo sysctl -p > /dev/null 2>&1
 sudo apt update && sudo apt install fail2ban -y && sudo systemctl enable fail2ban && sudo systemctl start fail2ban
 echo "set mouse-=a" >> ~/.vimrc
+sudo apt install git -y
+cd ~
+git clone https://git.chasehall.net/NebulaHost/Scripts.git
+git clone https://git.chasehall.net/Chase/Scripts.git Scripts_CH
 clear
