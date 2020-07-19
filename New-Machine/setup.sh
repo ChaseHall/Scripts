@@ -70,5 +70,5 @@ Documents
 echo "redshift -O 4500" >> ~/.startup.sh
 wget https://knapsu.eu/data/plex/Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage
 chmod +x Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage
-# Execute it once, and add to app menu.
-sudo reboot now
+./Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage # Execute it, so we can add to menu.
+#sudo reboot now
