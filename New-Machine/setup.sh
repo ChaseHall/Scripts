@@ -6,7 +6,6 @@
 # Whats missing:
 # General customization
 # Any form of settings (power/display)
-# Startup.sh... to actually startup.
 
 sudo apt install vim curl apt-transport-https -y
 sudo apt install fail2ban -y
@@ -71,4 +70,17 @@ echo "redshift -O 4500" >> ~/.startup.sh
 wget https://knapsu.eu/data/plex/Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage
 chmod +x Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage
 ./Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage # Execute it, so we can add to menu.
+mkdir ~/.config/autostart/
+echo "
+[Desktop Entry]
+Type=Application
+Exec=/home/user/startup.sh
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=Startup.sh
+Name=Startup.sh
+Comment[en_US]=Start my script.
+Comment=Start my script.
+X-MATE-Autostart-Delay=0
+" >> ~/.config/autostart/startup.sh.desktop
 #sudo reboot now
