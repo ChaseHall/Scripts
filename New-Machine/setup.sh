@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This assumes you already have a Parrot OS Security Edition install up and running, with FDE & a sudo user account.
-# https://parrotlinux.org/download/
+# https://parrotsec.org/download/
 
 # Whats missing:
 # General customization
