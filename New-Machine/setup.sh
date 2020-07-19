@@ -51,4 +51,24 @@ sudo apt update
 sudo snap install spotify
 sudo snap install discord
 sudo apt install -y vscodium tor filezilla hexchat ksysguard calibre brave-browser riot-desktop nextcloud-desktop checkra1n neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
+echo "
+Desktop
+Music
+Pictures
+Public
+snap
+Templates
+Videos
+Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage
+startup.sh
+Calibre Library
+kdenlive-renderqueue
+titles
+go
+Documents
+" >> ~/.hidden
+echo "redshift -O 4500" >> ~/.startup.sh
+wget https://knapsu.eu/data/plex/Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage
+chmod +x Plex_Media_Player_2.58.0.1076-38e019da_x64.AppImage
+# Execute it once, and add to app menu.
 sudo reboot now
