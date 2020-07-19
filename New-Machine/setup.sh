@@ -15,7 +15,7 @@ sudo systemctl start fail2ban
 echo "set mouse-=a" >> ~/.vimrc
 echo "
 # Chase Aliases
-alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo snap refresh"
+alias update="sudo parrot-upgrade && sudo snap refresh"
 alias www="ssh -p1000 root@chasehall.net"
 alias invoiceninja="ssh -p1001 root@chasehall.net"
 alias dockerce="ssh -p1002 root@chasehall.net"
