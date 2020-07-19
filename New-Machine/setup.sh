@@ -6,7 +6,7 @@
 # Whats missing:
 # General customization
 # Any form of settings (power/display)
-# Plex (AppImage)
+# Startup.sh... to actually startup.
 
 sudo apt install vim curl apt-transport-https -y
 sudo apt install fail2ban -y
@@ -50,7 +50,7 @@ echo "deb [signed-by=/usr/share/keyrings/riot-im-archive-keyring.gpg] https://pa
 sudo apt update
 sudo snap install spotify
 sudo snap install discord
-sudo apt install -y vscodium tor filezilla hexchat ksysguard calibre brave-browser riot-desktop nextcloud-desktop checkra1n neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
+sudo apt install -y vscodium tor filezilla hexchat redshift redshift-gtk ksysguard calibre brave-browser riot-desktop nextcloud-desktop checkra1n neofetch gnupg2 gnupg-agent pinentry-curses scdaemon pcscd yubioath-desktop libpam-yubico yubikey-manager-qt yubikey-manager yubikey-personalization yubikey-personalization-gui
 echo "
 Desktop
 Music
