@@ -3,7 +3,8 @@
 1. Delete old HTTPS cert 
     `sudo certbot delete`
 2. Rename the folder inside /var/www/
-3. Rename the VirtualHost inside cfg (along with cert)
+3. Rename the VirtualHost inside cfg
+    `:%s/old-domain.com/new-domain.com/g`
 4. Remove the DDNS line from ddns.sh
 5. Remove DNS from MIAB
 6. Add new DNS to ddns.sh
