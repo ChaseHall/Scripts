@@ -24,10 +24,6 @@ alias proxmox="ssh -p1005 root@chasehall.net"
 alias mail="ssh root@mail.nebulahost.us"
 alias pi="ssh -p1000 pi@aidenpi.cmh.pw"
 alias usb="ssh chase@lw833.usbx.me"
-alias mc="java -jar ~/Nextcloud/1_Personal/Programs/TLauncher-2.69.jar && exit"
-alias easystore="sudo sshfs -o allow_other,default_permissions,IdentityFile=/home/user/.ssh/id_rsa -p 1003 root@chasehall.net:/ /media/remotemount"
-alias mac="ssh Hall@192.168.86.182"
-#alias usb="sudo cryptsetup luksOpen /dev/sdb1 cusb && sudo mount /dev/mapper/cusb /mnt/usb/"
 " >> ~/.bashrc
 echo "
 deb https://assets.checkra.in/debian /
