@@ -39,6 +39,4 @@ sudo apt update && sudo apt install fail2ban -y && sudo systemctl enable fail2ba
 echo "set mouse-=a" >> ~/.vimrc
 sudo apt install git dos2unix -y
 cd ~
-git clone https://git.chasehall.net/NebulaHost/Scripts.git
-git clone https://git.chasehall.net/Chase/Scripts.git Scripts_CH
 clear
