@@ -17,7 +17,14 @@ Replace: Prefix $0 Suffix
 ```
 
 Pull every subdirectory from git.
-`find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;`
+```
+find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
+```
+
+Clean Docker (Size)
+```
+docker container prune && docker image prune
+```
 
 ---
 
