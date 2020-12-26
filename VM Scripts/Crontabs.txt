@@ -1,0 +1,74 @@
+# Crontab's for different VMs/VPSs
+# Make sure crontab has an empty line at EOF.
+
+
+# BEGIN WWW
+
+*/5 * * * * /root/ddns.sh 
+0 0 * * * sudo certbot renew
+0 1 * * * /root/Scripts_CH/VM\ Scripts/Bibliogram/Kill.sh
+0 1 * * * rm -rf Scripts/ Scripts_CH/ && git clone https://git.chasehall.net/NebulaHost/Scripts.git Scripts && git clone https://git.chasehall.net/Chase/Scripts.git Scripts_CH && cd Scripts && cd VM\ Scripts/WWW && chmod +x *.sh && cd .. && cd InvoiceNinja && chmod +x *.sh && cd ~ && cd Scripts_CH && cd VM\ Scripts/ && cd Bibliogram/ && chmod +x *.sh && cd .. && cd Invidious-Update && chmod +x *.sh && cd .. && cd Plex && chmod +x *.sh && cd ~
+0 1 * * * cd /var/www/rss.chasehall.net && sudo systemctl stop ttrss && git pull && sudo systemctl start ttrss
+0 2 * * * /root/Scripts/Backup\ Scripts/WWW.sh
+@reboot /usr/bin/screen -S Bibliogram -d -m /root/Scripts_CH/VM\ Scripts/Bibliogram/Start.sh
+
+0 0 * * * bash /root/Scripts/VM\ Scripts/InvoiceNinja/Updater.sh >> /dev/null
+0 8 * * * /usr/local/bin/php /var/www/pay.nebulahost.us/artisan ninja:send-invoices
+0 8 * * * /usr/local/bin/php /var/www/pay.nebulahost.us/artisan ninja:send-reminders
+
+# END WWW
+
+
+# BEGIN Plex
+
+*/30 * * * * bash /home/user/Scripts/VM\ Scripts/Plex/fixperms.sh
+0 1 * * * /home/user/Scripts/Backup\ Scripts/Plex.sh
+0 1 * * * su -c 'rm -rf Scripts/ Scripts_CH/ && git clone https://git.chasehall.net/NebulaHost/Scripts.git Scripts && git clone https://git.chasehall.net/Chase/Scripts.git Scripts_CH && cd Scripts && cd VM\ Scripts/WWW && chmod +x *.sh && cd .. && cd InvoiceNinja && chmod +x *.sh && cd ~ && cd Scripts_CH && cd VM\ Scripts/ && cd Bibliogram/ && chmod +x *.sh && cd .. && cd Invidious-Update && chmod +x *.sh && cd .. && cd Plex && chmod +x *.sh && cd ~' -s /bin/bash user
+
+# END Plex
+
+
+# BEGIN Mail
+
+0 23 * * * apt update && apt upgrade -y && reboot now
+0 1 * * * /home/user-data/backup.sh
+
+# END Mail
+
+# Begin Pi
+
+*/5 * * * * /home/pi/ddns.sh
+0 0 * * * sudo certbot renew
+0 3 * * * /home/pi/backup.sh
+
+# END Pi
+
+
+# BEGIN iMac
+
+00 00 * * * /Users/Hall/backup.sh
+
+# END iMac
+
+
+# BEGIN Invidious
+
+# sudo crontab -u postgres -e
+@hourly psql invidious -c "DELETE FROM nonces * WHERE expire < current_timestamp;" > /dev/null
+@hourly psql invidious -c "TRUNCATE TABLE videos;" > /dev/null
+@daily vacuumdb --dbname=invidious --analyze --verbose --table 'videos' > /dev/null
+@daily reindexdb --dbname=invidious > /dev/null
+# sudo crontab -u postgres -e
+
+# sudo crontab -e
+0 1 * * * /root/Update.sh
+# sudo crontab -e
+
+# END Invidious
+
+
+# BEGIN DockerCE
+
+0 1 * * * /root/backup.sh
+
+# END DockerCE

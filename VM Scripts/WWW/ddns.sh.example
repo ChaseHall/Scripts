@@ -1,0 +1,6 @@
+#!/bin/bash
+MIAB_Email=""
+MIAB_PW=""
+curl -X PUT --user $MIAB_Email:$MIAB_PW https://mail.nebulahost.us/admin/dns/custom/nebulahost.us
+sleep 1
+# [...]
