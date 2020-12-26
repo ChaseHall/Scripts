@@ -6,10 +6,10 @@ Scripts I use on a daily basis.
 
 ## Resources for myself
 
-Text Manipulation: 
+Text Manipulation (vim): 
 `:%g!/price/d` - Removes lines that **don't** contain price
 
-Adding prefix/suffix: 
+Adding prefix/suffix (Notepad++): 
 ```
 Find: ^(.*)$
 Replace: Prefix $0 Suffix
