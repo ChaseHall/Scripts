@@ -7,7 +7,8 @@ Scripts I use on a daily basis.
 ## Resources for myself
 
 Text Manipulation (vim): 
-`:%g!/price/d` - Removes lines that **don't** contain price
+`:%g!/price/d` - Removes lines that **don't** contain price  
+
 `:%s/foo/bar/g` - Replace all foo with bar
 
 Adding prefix/suffix (Notepad++): 
