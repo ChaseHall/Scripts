@@ -1,6 +1,6 @@
 # Scripts
 
-Scripts I use on a daily basis.
+Scripts/Resources I use on a daily basis.
 
 ---
 
