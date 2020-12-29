@@ -32,7 +32,7 @@ Redirect permanent / https://$ServerName_URL/
 
 # HTTPS
 <VirtualHost *:443>
-    ServerAdmin ch@chasehall.net
+    ServerAdmin c@chse.xyz
     ServerName $ServerName_URL
     DocumentRoot /var/www/$ServerName_URL
 #Include /etc/letsencrypt/options-ssl-apache.conf

@@ -42,7 +42,7 @@ Redirect permanent / https://$ServerName_URL/
 
 # HTTPS
 <VirtualHost *:443>
-    ServerAdmin $MIAB_Email
+    ServerAdmin c@chse.xyz
     ServerName $ServerName_URL
     DocumentRoot /var/www/$ServerName_URL
 #Include /etc/letsencrypt/options-ssl-apache.conf
@@ -96,7 +96,6 @@ wp plugin install adminimize --activate --allow-root
 wp plugin install capability-manager-enhanced --activate --allow-root
 wp plugin install host-webfonts-local --activate --allow-root
 wp plugin install hcaptcha-for-forms-and-more --activate --allow-root
-wp plugin install https://git.chasehall.net/NebulaHost/WordPress/raw/branch/master/NebulaHost-ClientThings/NebulaHost-ClientThings.zip --allow-root
 chown -R www-data:www-data /var/www/$ServerName_URL/
 #chmod 444 /var/www/$ServerName_URL/wp-config.php
 #chmod 444 /var/www/$ServerName_URL/.htaccess

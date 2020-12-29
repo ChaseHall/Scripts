@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Modified from: https://git.chasehall.net/Chase/Invidious-Updater
+# Modified from: https://git.chse.xyz/Chase/Invidious-Updater
 # This is NOT an installation script, please see above for that.
 
 

@@ -34,7 +34,7 @@ Redirect permanent / https://$ServerName_URL/
 
 # HTTPS
 <VirtualHost *:443>
-    ServerAdmin ch@chasehall.net
+    ServerAdmin c@chse.xyz
     ServerName $ServerName_URL
 ProxyPreserveHost On
 ProxyPass /.well-known !
