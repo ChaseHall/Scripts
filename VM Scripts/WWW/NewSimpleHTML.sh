@@ -5,7 +5,6 @@ MIAB_curl="curl -X PUT --user"
 MIAB_Email="ch@chasehall.net"
 MIAB_Password=$(<~/MIAB_PW.txt)
 MIAB_Link="https://mail.nebulahost.us/admin/dns/custom"
-ServerName_URL=$1
 
 
 # Checking things...
@@ -14,6 +13,7 @@ echo "You have to execute this script as root user"
 exit 1;
 fi
 
+read -p 'New HTTP Site Domain (i.e. http.chse.xyz): ' ServerName_URL
 mkdir /var/www/$ServerName_URL
   chown -R www-data:www-data /var/www/$ServerName_URL/
   echo "$MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL" >> /root/ddns.sh

@@ -27,20 +27,15 @@ $HEIGHT $WIDTH $CHOICE_HEIGHT \
 clear
 case $CHOICE in
 1)
-read -p 'New WP Site Domain (i.e. wp.chse.xyz): ' uservar
-bash NewWPSite.sh $uservar
+bash NewWPSite.sh
 ;;
 2)
-read -p 'New Reverse Proxy Domain (i.e. service.chse.xyz): ' uservar
-read -p 'What is getting reverse proxyd (i.e. 192.168.86.1:1111) [We assume http://] ' uservar2
-bash NewReverseProxy.sh $uservar $uservar2
+bash NewReverseProxy.sh
 ;;
 3)
-read -p 'New HTTP Site Domain (i.e. http.chse.xyz): ' uservar
-bash NewSimpleHTML.sh $uservar
+bash NewSimpleHTML.sh
 ;;
 4)
-read -p 'Where are we coming from? (i.e. source.chse.xyz): ' uservar
-bash NewRedirectSite.sh $uservar
+bash NewRedirectSite.sh
 ;;
 esac

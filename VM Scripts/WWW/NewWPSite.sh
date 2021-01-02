@@ -7,8 +7,6 @@ MIAB_Password=$(<~/MIAB_PW.txt)
 DB_PW=$(<~/DB_PW.txt)
 MIAB_Link="https://mail.nebulahost.us/admin/dns/custom"
 WP_Username="Chase"
-ServerName_URL=$1
-DB_Name=$(echo "${ServerName_URL//.}")
 Random_PW1=$(bash pwgen.sh)
 Random_PW2=$(bash pwgen.sh)
 
@@ -22,6 +20,9 @@ fi
 if [ ! -e "/usr/local/bin/wp" ]; then
        curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp
 fi
+
+read -p 'What domain do you want? (i.e. wp.chse.xyz): ' ServerName_URL
+DB_Name=$(echo "${ServerName_URL//.}")
 
 mkdir /var/www/$ServerName_URL
 sudo wp cli update
