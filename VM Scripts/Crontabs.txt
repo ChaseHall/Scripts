@@ -19,7 +19,7 @@
 # Every 30m fix file permissions for Plex content.
 0 1 * * * /home/user/Scripts/Backup\ Scripts/Plex.sh
 # Every day at 1 am, run backup.
-0 1 * * * su -c rm -rf ~/Scripts/ && git clone https://git.chse.xyz/Chase/Scripts.git && cd Scripts && find . -type f -iname "*.sh" -exec chmod +x {} \; && cd' -s /bin/bash user
+0 1 * * * su -c 'rm -rf ~/Scripts/ && git clone https://git.chse.xyz/Chase/Scripts.git && cd Scripts && find . -type f -iname "*.sh" -exec chmod +x {} \; && cd' -s /bin/bash user
 # Every day at 1 am, update Scripts git.
 3 3 * * * /usr/local/sbin/boringtun-upgrade &>/dev/null
 0 2 * * * echo y | docker container prune && echo y | docker image prune
