@@ -1,10 +1,8 @@
 # Scripts
 
-Scripts/Resources I use on a daily basis.
+Scripts & Resources I have made.
 
 ---
-
-## Resources for myself
 
 ### Text Manipulation (vim): 
 `:%g!/price/d` - Removes lines that **don't** contain price  
@@ -15,16 +13,6 @@ Scripts/Resources I use on a daily basis.
 ```
 Find: ^(.*)$
 Replace: Prefix $0 Suffix
-```
-
-### Pull every subdirectory from git.
-```
-find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;
-```
-
-### Clean Docker (Size)
-```
-docker container prune && docker image prune
 ```
 
 ---
