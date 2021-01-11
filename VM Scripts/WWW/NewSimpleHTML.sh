@@ -41,6 +41,7 @@ sed -i '/#Include \/etc\/letsencrypt\/options-ssl-apache.conf/s/^# *//' /etc/apa
 sed -i '/#SSLCertificateFile \/etc\/letsencrypt\/live\/'$ServerName_URL'\/fullchain.pem/s/^# *//' /etc/apache2/sites-available/www.conf
 sed -i '/#SSLCertificateKeyFile \/etc\/letsencrypt\/live\/'$ServerName_URL'\/privkey.pem/s/^# *//' /etc/apache2/sites-available/www.conf
 sudo systemctl restart apache2
+echo "ErrorDocument 404 https://$ServerName_URL" >> /var/www/$ServerName_URL/.htaccess
 clear
 echo Add $ServerName_URL to DNS Host Mapping on modem.
 echo Add content to: /var/www/$ServerName_URL
