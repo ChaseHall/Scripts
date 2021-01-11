@@ -23,28 +23,17 @@ read -p 'What is getting reverse proxyd (i.e. 192.168.86.1:1111) [We assume http
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
   
-echo "
-# BEGIN $ServerName_URL
-
-# HTTP
-<VirtualHost *:80>
+echo "<VirtualHost *:80>
 ServerName $ServerName_URL
 Redirect permanent / https://$ServerName_URL/
 </VirtualHost>
-# HTTP
 
-# HTTPS
 <VirtualHost *:443>
     ServerAdmin c@chse.xyz
     ServerName $ServerName_URL
 ProxyPreserveHost On
 ProxyPass /.well-known !
 <Location />
-#Order Deny,Allow
-#Deny from all
-#Allow from 127.0.0.1 ::1
-#Allow from localhost
-#Allow from 192.168
 #ProxyPass http://192.168.86.XX:XX/
 #ProxyPassReverse http://192.168.86.XX:XX/
 </Location>
@@ -52,10 +41,7 @@ ProxyPass /.well-known !
 #SSLCertificateFile /etc/letsencrypt/live/$ServerName_URL/fullchain.pem
 #SSLCertificateKeyFile /etc/letsencrypt/live/$ServerName_URL/privkey.pem
 </VirtualHost>
-# HTTPS
-
-# END $ServerName_URL
-">> /etc/apache2/sites-available/www.conf
+" >> /etc/apache2/sites-available/www.conf
 
 sudo systemctl restart apache2
 sudo certbot certonly --apache -d $ServerName_URL

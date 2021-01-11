@@ -20,17 +20,11 @@ mkdir /var/www/$ServerName_URL
   echo "sleep 1" >> /root/ddns.sh
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
-echo "
-# BEGIN $ServerName_URL
-
-# HTTP
-<VirtualHost *:80>
+echo "<VirtualHost *:80>
 ServerName $ServerName_URL
 Redirect permanent / https://$ServerName_URL/
 </VirtualHost>
-# HTTP
 
-# HTTPS
 <VirtualHost *:443>
     ServerAdmin c@chse.xyz
     ServerName $ServerName_URL
@@ -39,10 +33,7 @@ Redirect permanent / https://$ServerName_URL/
 #SSLCertificateFile /etc/letsencrypt/live/$ServerName_URL/fullchain.pem
 #SSLCertificateKeyFile /etc/letsencrypt/live/$ServerName_URL/privkey.pem
 </VirtualHost>
-# HTTPS
-
-# END $ServerName_URL
-">> /etc/apache2/sites-available/www.conf
+" >> /etc/apache2/sites-available/www.conf
 
 sudo systemctl restart apache2
 sudo certbot certonly --apache -d $ServerName_URL
