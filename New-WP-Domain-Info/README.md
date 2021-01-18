@@ -1,4 +1,10 @@
-# Moving WP Domains
+# Moving WP Domains (New)
+
+1. Run ./menu.sh with Migration Selected.
+
+---
+
+# Moving WP Domains (Legacy)
 
 1. `sudo certbot delete` the old domain.
 2. Delete the old domain from MIAB + DNS on modem.
