@@ -15,7 +15,7 @@ OPTIONS=(
 1 "New WP Site"
 2 "New Reverse Proxy"
 3 "New HTTP Site"
-4 "New Redirect Site")
+4 "New Redirect Site"
 5 "New Migration")
 
 CHOICE=$(dialog --clear \
