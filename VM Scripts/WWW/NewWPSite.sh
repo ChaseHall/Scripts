@@ -64,10 +64,10 @@ mysql -uroot -p$DB_PW -e "FLUSH PRIVILEGES;"
 wp config create --dbname=$DB_Name --dbuser=$DB_Name --dbpass=$Random_PW1 --allow-root
 wp core install --url=https://$ServerName_URL --title=$ServerName_URL --admin_user=$WP_Username --admin_password=$Random_PW2 --admin_email=$MIAB_Email --allow-root
 wp plugin install maintenance --activate --allow-root
-#wp plugin install daggerhart-openid-connect-generic --allow-root
 rm -rf /wp-content/themes/twentyfourteen
 rm -rf /wp-content/themes/twentyfifteen
 rm -rf /wp-content/themes/twentysixteen
+rm -rf /wp-content/themes/twentytwenty
 wp theme delete twentyseventeen --allow-root
 wp theme delete twentynineteen --allow-root
 wp site empty --yes --allow-root
@@ -80,7 +80,6 @@ wp plugin install all-404-redirect-to-homepage --activate --allow-root
 wp plugin install autoptimize --activate --allow-root
 wp plugin install insert-headers-and-footers --activate --allow-root
 wp plugin install better-wp-security --activate --allow-root
-wp plugin install mainwp-child --allow-root
 wp plugin install redirection --activate --allow-root
 wp plugin install wp-super-cache --activate --allow-root
 wp plugin install wordpress-seo --activate --allow-root
