@@ -5,7 +5,7 @@ MIAB_curl="curl -X DELETE --user"
 MIAB_curl2="curl -X PUT --user"
 MIAB_Email="ch@chasehall.net"
 MIAB_Password=$(<~/MIAB_PW.txt)
-MIAB_Link="https://mail.nebulahost.us/admin/dns/custom"
+MIAB_Link="https://mail.aries.host/admin/dns/custom"
 
 
 # Checking things...
