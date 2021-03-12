@@ -4,7 +4,7 @@
 
 # Add my changes, then install MIAB.
 cd ~
-echo -e "\nalias update='sudo apt update && sudo apt upgrade -y && sudo mailinabox && sudo reboot now'" >> .bashrc
+echo -e "\nalias update='sudo apt update && sudo apt upgrade -y && sudo mailinabox && bash ~/After_MIAB_Upgrade.sh && sudo reboot now'" >> .bashrc
 
 # wget the "after installation script"
 wget https://raw.githubusercontent.com/ChxseH/Scripts/master/Mail/After_MIAB_Upgrade.sh
