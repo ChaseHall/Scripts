@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# cd ~ && wget https://raw.githubusercontent.com/ChxseH/Scripts/master/Mail/Initial_Install.sh && chmod +x Initial_Install.sh && bash Initial_Install.sh && rm Initial_Install.sh
+
 # Add my changes, then install MIAB.
 cd ~
 echo -e "\nalias update='sudo apt update && sudo apt upgrade -y && sudo mailinabox && sudo reboot now'" >> .bashrc
