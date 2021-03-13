@@ -29,8 +29,11 @@ Redirect permanent / https://$ServerName_URL/
 </VirtualHost>
 
 <VirtualHost *:443>
-    ServerAdmin c@chse.xyz
-    ServerName $ServerName_URL
+ServerAdmin c@chse.xyz
+ServerName $ServerName_URL
+<IfModule mod_headers.c>
+Header always set Strict-Transport-Security \"max-age=15552000; includeSubDomains\"
+</IfModule>
 ProxyPreserveHost On
 ProxyPass /.well-known !
 <Location />

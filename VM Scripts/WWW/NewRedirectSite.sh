@@ -25,9 +25,12 @@ Redirect permanent / https://$ServerName_URL/
 </VirtualHost>
 
 <VirtualHost *:443>
-    ServerAdmin c@chse.xyz
-    ServerName $ServerName_URL
-    Redirect permanent / https://$DestVar/
+ServerAdmin c@chse.xyz
+ServerName $ServerName_URL
+Redirect permanent / https://$DestVar/
+<IfModule mod_headers.c>
+Header always set Strict-Transport-Security \"max-age=15552000; includeSubDomains\"
+</IfModule>
 #Include /etc/letsencrypt/options-ssl-apache.conf
 #SSLCertificateFile /etc/letsencrypt/live/$ServerName_URL/fullchain.pem
 #SSLCertificateKeyFile /etc/letsencrypt/live/$ServerName_URL/privkey.pem
