@@ -105,7 +105,6 @@ echo $Random_PW2
 echo
 echo
 echo Go configure all the plugins now.
-echo Activate MainWP when ready.
 echo
 echo
 echo Install any additional plugins.
