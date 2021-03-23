@@ -7,7 +7,7 @@ fi
 
 HEIGHT=15
 WIDTH=40
-CHOICE_HEIGHT=5
+CHOICE_HEIGHT=4
 TITLE="Menu"
 MENU="Choose one of the following options:"
 
@@ -15,8 +15,7 @@ OPTIONS=(
 1 "New WP Site"
 2 "New Reverse Proxy"
 3 "New HTTP Site"
-4 "New Redirect Site"
-5 "New Migration")
+4 "New Redirect Site")
 
 CHOICE=$(dialog --clear \
 --title "$TITLE" \
@@ -38,8 +37,5 @@ bash NewSimpleHTML.sh
 ;;
 4)
 bash NewRedirectSite.sh
-;;
-5)
-bash Migration.sh
 ;;
 esac
