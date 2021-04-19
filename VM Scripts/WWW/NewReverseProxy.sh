@@ -33,6 +33,7 @@ ServerAdmin c@chse.xyz
 ServerName $ServerName_URL
 <IfModule mod_headers.c>
 Header always set Strict-Transport-Security \"max-age=15552000; includeSubDomains\"
+Header always set Permissions-Policy: interest-cohort=()
 </IfModule>
 ProxyPreserveHost On
 ProxyPass /.well-known !

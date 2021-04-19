@@ -31,6 +31,7 @@ ServerName $ServerName_URL
 DocumentRoot /var/www/$ServerName_URL
 <IfModule mod_headers.c>
 Header always set Strict-Transport-Security \"max-age=15552000; includeSubDomains\"
+Header always set Permissions-Policy: interest-cohort=()
 </IfModule>
 #Include /etc/letsencrypt/options-ssl-apache.conf
 #SSLCertificateFile /etc/letsencrypt/live/$ServerName_URL/fullchain.pem
