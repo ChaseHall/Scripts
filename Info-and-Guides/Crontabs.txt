@@ -2,39 +2,33 @@
 # Make sure crontab has an empty line at EOF.
 
 # WWW
-*/4 * * * * /root/ddns.sh
-# Every 5m run ddns.sh
+*/15 * * * * /root/ddns.sh
 0 0 * * * sudo certbot renew
-# Every day at midnight, grab any new https certs.
 0 1 * * * rm -rf ~/Scripts/ && git clone https://github.com/ChxseH/Scripts.git && cd Scripts && find . -type f -iname "*.sh" -exec chmod +x {} \; && cd
-# Every day at 1 am, update Scripts git.
-0 2 * * * /root/Scripts/Backup\ Scripts/WWW.sh
-# Every day at 2 am, run backup.
-0 0 * * * bash /root/Scripts/VM\ Scripts/InvoiceNinja/Updater.sh >> /dev/null
+#0 3 * * * /root/Scripts/Backup\ Scripts/WWW.sh
+0 4 * * * root /usr/bin/geoipupdate
+0 4 * * * sudo apt update && sudo apt upgrade -y
+0 2 * * * bash /root/Scripts/VM\ Scripts/InvoiceNinja/Updater.sh >> /dev/null
 0 8 * * * /usr/local/bin/php /var/www/billing.aries.host/artisan ninja:send-invoices
 0 8 * * * /usr/local/bin/php /var/www/billing.aries.host/artisan ninja:send-reminders
 
+---
+
 # Plex
-*/30 * * * * bash /home/user/Scripts/VM\ Scripts/Plex/fixperms.sh
-# Every 30m fix file permissions for Plex content.
-0 1 * * * /home/user/Scripts/Backup\ Scripts/Plex.sh
-# Every day at 1 am, run backup.
-0 1 * * * su -c 'rm -rf ~/Scripts/ && git clone https://github.com/ChxseH/Scripts.git && cd Scripts && find . -type f -iname "*.sh" -exec chmod +x {} \; && cd' -s /bin/bash user
-# Every day at 1 am, update Scripts git.
+*/30 * * * * bash /root/Scripts/VM\ Scripts/Plex/fixperms.sh
+#0 1 * * * /home/user/Scripts/Backup\ Scripts/Plex.sh
+0 1 * * * 'cd ~ && rm -rf ~/Scripts/ && git clone https://github.com/ChxseH/Scripts.git && cd Scripts && find . -type f -iname "*.sh" -exec chmod +x {} \; && cd'
 3 3 * * * /usr/local/sbin/boringtun-upgrade &>/dev/null
 0 2 * * * echo y | docker container prune && echo y | docker image prune
 */15 * * * * cd /root/IW6x-Wiki/ && bash /root/IW6x-Wiki/Script.sh
+0 5 * * * su -c 'bash ~/cleanup.sh' -s /bin/bash user
+@reboot pm2 resurrect
+0 4 * * * sudo apt update && sudo apt upgrade -y
 # www-data
-*/5  *  *  *  * php -f /var/www/nextcloud/cron.php
+*/15  *  *  *  * flock /tmp php -f /var/www/nextcloud/cron.php
 
-# Docker
-0 1 * * * /root/backup.sh
-0 2 * * * echo y | docker container prune && echo y | docker image prune
+---
 
 # Invidious
 0 1 * * * /root/Update.sh
 0 */4 * * * sudo systemctl restart invidious postgresql
-
-# Mail
-0 23 * * * apt update && apt upgrade -y
-0 1 * * * /home/user-data/backup.sh
