@@ -1,0 +1,8 @@
+# /root/ssh/config
+Host chse.xyz
+    Port 1010
+	
+# Backup Status Settings
+# Hostname: chse.xyz
+# Path: /home/[redacted]/backups/miab
+# Username: [redacted]
