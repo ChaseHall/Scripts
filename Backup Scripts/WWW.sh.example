@@ -1,17 +1,16 @@
 #!/bin/bash
 
 DestFolder="/home/pi/backups/vms/www"
-DATE="$(date +%Y_%m_%d)"
 MySQLPW=""
 
 mysqldump --all-databases --single-transaction --quick --lock-tables=false > /tmp/sql-dump.sql -u root -p$MySQLPW # Dump Entire DB into /tmp/.
-rsync -e 'ssh -p 1010' -az /tmp/sql-dump.sql pi@chse.xyz:$DestFolder/$DATE/WWW-SQL-Dump.sql # Transfer to VM.
+rsync -e 'ssh -p 1010' -az /tmp/sql-dump.sql pi@chse.xyz:$DestFolder/WWW-SQL-Dump.sql # Transfer to VM.
 rm /tmp/sql-dump.sql # Remove Locally.
 
-rsync -e 'ssh -p 1010' -azrd --delete /var/www/* pi@chse.xyz:$DestFolder/$DATE/var-www/
+rsync -e 'ssh -p 1010' -azrd --delete /var/www/* pi@chse.xyz:$DestFolder/var-www/
 
-rsync -e 'ssh -p 1010' -az /etc/apache2/sites-available/www.conf pi@chse.xyz:$DestFolder/$DATE/www.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -az /etc/apache2/apache2.conf pi@chse.xyz:$DestFolder/$DATE/apache2.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -az /etc/apache2/conf-enabled/block-ips.conf pi@chse.xyz:$DestFolder/$DATE/block-ips.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -az /etc/letsencrypt/options-ssl-apache.conf pi@chse.xyz:$DestFolder/$DATE/options-ssl-apache.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -azrd --delete /etc/modsecurity/* pi@chse.xyz:$DestFolder/$DATE/modsecurity/ # Transfer to VM.
+rsync -e 'ssh -p 1010' -az /etc/apache2/sites-available/www.conf pi@chse.xyz:$DestFolder/www.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -az /etc/apache2/apache2.conf pi@chse.xyz:$DestFolder/apache2.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -az /etc/apache2/conf-enabled/block-ips.conf pi@chse.xyz:$DestFolder/block-ips.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -az /etc/letsencrypt/options-ssl-apache.conf pi@chse.xyz:$DestFolder/options-ssl-apache.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -azrd --delete /etc/modsecurity/* pi@chse.xyz:$DestFolder/modsecurity/ # Transfer to VM.
