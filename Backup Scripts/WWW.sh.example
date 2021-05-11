@@ -9,11 +9,11 @@ rsync -e 'ssh -p 1010' -avzp /tmp/sql-dump.sql pi@chse.xyz:$DestFolder/$DATE/WWW
 rm /tmp/sql-dump.sql # Remove Locally.
 
 tar -cvpzf /tmp/WWW.tar.gz /var/www/* # Backup /var/www/.
-rsync -e 'ssh -p 1010' -avzp /tmp/WWW.tar.gz user@chse.xyz:$DestFolder/$DATE/WWW.tar.gz # Transfer to VM.
+rsync -e 'ssh -p 1010' -avzp /tmp/WWW.tar.gz pi@chse.xyz:$DestFolder/$DATE/WWW.tar.gz # Transfer to VM.
 rm /tmp/WWW.tar.gz # Remove Locally.
 
-rsync -e 'ssh -p 1010' -avzp /etc/apache2/sites-available/www.conf user@chse.xyz:$DestFolder/$DATE/www.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -avzp /etc/apache2/apache2.conf user@chse.xyz:$DestFolder/$DATE/apache2.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -avzp /etc/apache2/conf-enabled/block-ips.conf user@chse.xyz:$DestFolder/$DATE/block-ips.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -avzp /etc/letsencrypt/options-ssl-apache.conf user@chse.xyz:$DestFolder/$DATE/options-ssl-apache.conf # Transfer to VM.
-rsync -e 'ssh -p 1010' -avzp /etc/modsecurity/* user@chse.xyz:$DestFolder/$DATE/modsecurity/ # Transfer to VM.
+rsync -e 'ssh -p 1010' -avzp /etc/apache2/sites-available/www.conf pi@chse.xyz:$DestFolder/$DATE/www.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -avzp /etc/apache2/apache2.conf pi@chse.xyz:$DestFolder/$DATE/apache2.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -avzp /etc/apache2/conf-enabled/block-ips.conf pi@chse.xyz:$DestFolder/$DATE/block-ips.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -avzp /etc/letsencrypt/options-ssl-apache.conf pi@chse.xyz:$DestFolder/$DATE/options-ssl-apache.conf # Transfer to VM.
+rsync -e 'ssh -p 1010' -avzp /etc/modsecurity/* pi@chse.xyz:$DestFolder/$DATE/modsecurity/ # Transfer to VM.

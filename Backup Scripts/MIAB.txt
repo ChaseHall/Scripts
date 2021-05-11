@@ -4,5 +4,5 @@ Host chse.xyz
 	
 # Backup Status Settings
 # Hostname: chse.xyz
-# Path: /home/[redacted]/backups/miab
-# Username: [redacted]
+# Path: /home/pi/backups/miab
+# Username: pi
