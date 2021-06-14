@@ -15,6 +15,9 @@ Find: ^(.*)$
 Replace: Prefix $0 Suffix
 ```
 
+### Updating `~/GitHub`
+`for i in */.git; do ( echo $i; cd $i/..; git pull; ); done`
+
 ---
 
 ## Licensing
