@@ -16,7 +16,7 @@ fi
 read -p 'New HTTP Site Domain (i.e. http.chse.xyz): ' ServerName_URL
 mkdir /var/www/$ServerName_URL
   chown -R www-data:www-data /var/www/$ServerName_URL/
-  echo "$MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL" >> /root/ddns.sh
+  echo "\$MIAB_curl \$MIAB_Email:\$MIAB_Password \$MIAB_Link/$ServerName_URL" >> /root/ddns.sh
   echo "sleep 1" >> /root/ddns.sh
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL

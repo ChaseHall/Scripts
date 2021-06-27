@@ -1,6 +1,8 @@
 #!/bin/bash
+MIAB_curl="curl -X PUT --user"
 MIAB_Email=""
 MIAB_PW=""
-curl -X PUT --user $MIAB_Email:$MIAB_PW https://mail.aries.host/admin/dns/custom/aries.host
+MIAB_Link="https://mail.aries.host/admin/dns/custom"
+$MIAB_curl $MIAB_Email:$MIAB_PW https://mail.aries.host/admin/dns/custom/aries.host
 sleep 1
 # [...]

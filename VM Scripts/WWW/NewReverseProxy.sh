@@ -18,7 +18,7 @@ fi
 read -p 'New Reverse Proxy Domain (i.e. service.chse.xyz): ' ServerName_URL
 read -p 'What is getting reverse proxyd (i.e. 192.168.86.1:1111) [We assume http://] ' RevVar
 
-  echo "$MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL" >> /root/ddns.sh
+  echo "\$MIAB_curl \$MIAB_Email:\$MIAB_Password \$MIAB_Link/$ServerName_URL" >> /root/ddns.sh
   echo "sleep 1" >> /root/ddns.sh
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL

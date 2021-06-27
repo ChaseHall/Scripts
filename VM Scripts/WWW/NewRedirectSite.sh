@@ -14,7 +14,7 @@ exit 1;
 fi
 read -p 'Where are we coming from? (i.e. source.chse.xyz): ' ServerName_URL
 read -p "Where should $ServerName_URL go to? (dest.chse.xyz) [We assume HTTPS.] " DestVar
-  echo "$MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL" >> /root/ddns.sh
+  echo "\$MIAB_curl \$MIAB_Email:\$MIAB_Password \$MIAB_Link/$ServerName_URL" >> /root/ddns.sh
   echo "sleep 1" >> /root/ddns.sh
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
   $MIAB_curl $MIAB_Email:$MIAB_Password $MIAB_Link/$ServerName_URL
