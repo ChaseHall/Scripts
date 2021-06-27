@@ -1,8 +1,8 @@
 # /root/ssh/config
-Host chse.xyz
+Host chse.dev
     Port 1010
 	
 # Backup Status Settings
-# Hostname: chse.xyz
+# Hostname: chse.dev
 # Path: /home/pi/backups/miab
 # Username: pi

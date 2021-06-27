@@ -15,7 +15,7 @@ echo "You have to execute this script as root user"
 exit 1;
 fi
 
-read -p 'New Reverse Proxy Domain (i.e. service.chse.xyz): ' ServerName_URL
+read -p 'New Reverse Proxy Domain (i.e. service.chse.dev): ' ServerName_URL
 read -p 'What is getting reverse proxyd (i.e. 192.168.86.1:1111) [We assume http://] ' RevVar
 
   echo "\$MIAB_curl \$MIAB_Email:\$MIAB_Password \$MIAB_Link/$ServerName_URL" >> /root/ddns.sh

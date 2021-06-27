@@ -21,7 +21,7 @@ if [ ! -e "/usr/local/bin/wp" ]; then
        curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && sudo mv wp-cli.phar /usr/local/bin/wp
 fi
 
-read -p 'What domain do you want? (i.e. wp.chse.xyz): ' ServerName_URL
+read -p 'What domain do you want? (i.e. wp.chse.dev): ' ServerName_URL
 DB_Name=$(echo "${ServerName_URL//.}")
 
 mkdir /var/www/$ServerName_URL
