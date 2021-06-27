@@ -37,7 +37,7 @@ Redirect permanent / https://$ServerName_URL/
 </VirtualHost>
 
 <VirtualHost *:443>
-ServerAdmin c@chse.xyz
+ServerAdmin c@chse.dev
 ServerName $ServerName_URL
 DocumentRoot /var/www/$ServerName_URL
 <IfModule mod_headers.c>

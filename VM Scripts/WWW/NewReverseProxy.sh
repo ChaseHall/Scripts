@@ -29,7 +29,7 @@ Redirect permanent / https://$ServerName_URL/
 </VirtualHost>
 
 <VirtualHost *:443>
-ServerAdmin c@chse.xyz
+ServerAdmin c@chse.dev
 ServerName $ServerName_URL
 <IfModule mod_headers.c>
 Header always set Strict-Transport-Security \"max-age=15552000; includeSubDomains\"

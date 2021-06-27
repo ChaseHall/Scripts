@@ -25,7 +25,7 @@ Redirect permanent / https://$ServerName_URL/
 </VirtualHost>
 
 <VirtualHost *:443>
-ServerAdmin c@chse.xyz
+ServerAdmin c@chse.dev
 ServerName $ServerName_URL
 Redirect permanent / https://$DestVar/
 <IfModule mod_headers.c>
