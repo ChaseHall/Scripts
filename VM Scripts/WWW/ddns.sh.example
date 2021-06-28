@@ -3,8 +3,11 @@ MIAB_curl="curl -X PUT --user"
 MIAB_Email=""
 MIAB_PW=""
 MIAB_Link="https://mail.aries.host/admin/dns/custom"
+MIAB="$MIAB_curl $MIAB_Email:$MIAB_PW $MIAB_Link"
 CF="bash Cloudflare-DDNS.sh $CF_auth_email $CF_auth_key"
 CF_auth_email=""
 CF_auth_key=""
 
 $CF zone-id-here domain.tld
+sleep 3
+$MIAB/domain.tld
