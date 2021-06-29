@@ -1,8 +1,9 @@
-# /root/ssh/config
-Host chse.dev
+# /root/.ssh/config
+Host ftp.aries.host
+    Hostname ftp.aries.host
     Port 1010
 	
 # Backup Status Settings
-# Hostname: chse.dev
+# Hostname: ftp.aries.host
 # Path: /home/pi/backups/miab
 # Username: pi
