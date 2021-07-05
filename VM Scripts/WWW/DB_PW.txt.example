@@ -1,1 +1,1 @@
-# Replace this line with the root mysql db password.
+# This file should be one line, only containing the MySQL root password, and should be in ~/DB_PW.txt
