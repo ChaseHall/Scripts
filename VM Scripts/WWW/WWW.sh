@@ -255,7 +255,7 @@ dialog --stdout --title "Cloudflare?"  --yesno "Are we using Cloudflare for $sit
 isCloudflare=$?
 clear
 if [ "$isCloudflare" -eq 0 ]; then
-    zoneID=$(dialog --stdout --title "Zone ID" --inputbox "What is your site's Zone ID?" 0 0)
+    zoneID=$(dialog --stdout --title "Zone ID" --inputbox "What is $siteName's Zone ID?" 0 0)
     clear
     dialog --stdout --title "Cloudflare Proxy?"  --yesno "Are we proxying $siteName through Cloudflare?" 0 0
     cloudflare_proxy_question=$?
@@ -292,4 +292,4 @@ else
     exit 1
 fi
 
-echo -e "\nAdd $siteName to Modem DNS Host Mapping."
+echo -e "\nAdd $siteName to Modem DNS Host Mapping"
