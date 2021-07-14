@@ -14,17 +14,12 @@
 0 4 * * * root /usr/bin/geoipupdate
 # Update Packages
 0 4 * * * sudo apt update && sudo apt upgrade -y
-# Update Invoice Ninja
-0 2 * * * bash /root/Scripts/VM\ Scripts/InvoiceNinja/Updater.sh >> /dev/null
-# Send Invoices/Reminders
-0 8 * * * /usr/local/bin/php /var/www/billing.aries.host/artisan ninja:send-invoices
-0 8 * * * /usr/local/bin/php /var/www/billing.aries.host/artisan ninja:send-reminders
 
 # Plex
 # Every 30m fix file permissions for Plex content.
-*/30 * * * * bash /root/Scripts/VM\ Scripts/Plex/fixperms.sh
+*/30 * * * * bash /root/Scripts/Plex/fixperms.sh
 # Every day at 1 am, run backup.
-0 2 * * * /home/user/Scripts/Backup\ Scripts/Plex.sh
+0 2 * * * /home/user/Scripts/Backup-Scripts/Plex.sh
 # Every day at 1 am, update Scripts git.
 0 1 * * * 'cd ~ && rm -rf ~/Scripts/ && git clone https://github.com/ChxseH/Scripts.git && cd Scripts && find . -type f -iname "*.sh" -exec chmod +x {} \; && cd'
 # Do Updates
@@ -42,13 +37,5 @@
 # www-data
 */15  *  *  *  * flock /tmp php -f /var/www/nextcloud/cron.php
 
-# Invidious
-0 1 * * * /root/Update.sh
-0 */4 * * * sudo systemctl restart invidious postgresql
-
 # Mail
 0 23 * * * apt update && apt upgrade -y
-
-# Pi
-# Create folder structure for upcoming backups.
-0 1 * * * /home/pi/Pi.sh 
