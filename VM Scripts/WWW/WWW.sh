@@ -251,7 +251,7 @@ siteName=$(dialog --stdout --title "Hostname" --inputbox "What is your site's ho
 clear
 
 # Ask the user if they want to use Cloudflare.
-dialog --stdout --title "Cloudflare?"  --yesno "Are we using Cloudflare for $siteName?" 0 0
+dialog --stdout --title "Cloudflare?"  --yesno "Are we using Cloudflare for the root domain of $siteName?" 0 0
 isCloudflare=$?
 clear
 if [ "$isCloudflare" -eq 0 ]; then
@@ -291,5 +291,3 @@ elif [ $optionsForSite -eq 4 ]; then
 else
     exit 1
 fi
-
-echo -e "\nAdd $siteName to Modem DNS Host Mapping"
